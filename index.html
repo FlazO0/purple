@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do Curso de Marketing Digital</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        @font-face {
+    font-family: 'Gliker SemiBold Expanded';
+    src: url('./fonts/Gliker-SemiBoldExpanded.eot');
+    src: local('./fonts/Gliker SemiBold Expanded'), local('Gliker-SemiBoldExpanded'),
+        url('./fonts/Gliker-SemiBoldExpanded.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/Gliker-SemiBoldExpanded.woff2') format('woff2'),
+        url('./fonts/Gliker-SemiBoldExpanded.woff') format('woff'),
+        url('./fonts/Gliker-SemiBoldExpanded.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        /* Paleta de Cores */
+        :root {
+            --primary-color: #4A148C; /* Roxo Escuro */
+            --secondary-color: #7B1FA2; /* Roxo Médio */
+            --text-color: #FFFFFF; /* Branco */
+            --bg-light: #F5F5F5; /* Cinza Claro */
+            --bg-dark: #280035; /* Fundo Escuro */
+            --highlight-color: #9C27B0; /* Roxo Vibrante */
+        }
+
+        body {
+            font-family: 'Gliker SemiBold Expanded' !important;
+            background-color: black !important;
+        }
+
+        h1, h2, h3, p {
+            margin-bottom: 1.5rem;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .cta-button {
+            background-color: var(--highlight-color);
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+        }
+
+        .button-box {
+            margin-top: 1.5rem;
+        }
+
+        .button-box .btn {
+            background-color: var(--highlight-color);
+            border: none;
+            color: var(--text-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .button-box .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .sobre {
+            padding: 4rem 0;
+            background-color: black !important;
+            color: var(--text-color);
+        }
+
+
+        .sobre-mim {
+            padding: 4rem 0;
+            color: #ffffff;
+        }
+
+        .sobre-mim img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .sobre-mim h2 {
+            color: var(--primary-color);
+        }
+
+/* Seção FAQ */
+.faq {
+    padding: 2rem 0;
+}
+
+.faq .card {
+    margin-bottom: 1rem;
+}
+
+.faq .card-header {
+    background-color: #c800ff;
+    color: #fff;
+}
+
+.faq .btn-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.btn:hover {
+    color: #fff;
+    text-decoration: none;
+    border: none !important;
+    outline: none !important;
+}
+.faq:hover .btn-link:hover {
+    color: #fff;
+    text-decoration: none;
+    border: none !important;
+    outline: none !important;
+}
+
+.btn-link:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 2rem 0;
+        }
+
+        /* Sombras e animações */
+        .shadow-box {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .animated-hover:hover {
+            transition: transform 0.2s ease-in-out;
+            transform: scale(1.05);
+        }
+
+        
+
+.video-box video {
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+
+
+
+
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Alinhado à esquerda */
+    align-items: center;
+    background: url('background.png') no-repeat center center/cover; /* Substitua com a sua imagem de fundo */
+}
+
+.logo {
+    margin-bottom: 28px;
+    margin-left: 38px;
+    margin-right: 38px;
+}
+
+.logo img {
+    width: 300px;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 2;
+    text-align: left;
+    color: #FFF;
+    width: 50%;
+}
+
+.text-box {
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.text-box h1 {
+    font-family: 'Gliker SemiBold Expanded' !important;
+    font-size: 19px;
+    color: #800080; /* Cor roxa para o texto */
+    line-height: 1.5;
+}
+
+.video-box {
+    max-width: 440px;
+    margin-left: 50px;
+    position: relative;
+}
+.button-box {
+    justify-self: center;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.button-box > a {
+    width: 400px;
+    color: #fff;
+    background-color: #c800ff !important;
+    border-color: #d056f2 !important;
+}
+video {
+    width: 300px;
+    border-radius: 10px;
+    border: 2px solid #800080; /* Borda roxa */
+}
+
+.toggle-sound {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    /* Centralizar conteúdo na versão mobile */
+    .content {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .text-box {
+        margin-left: 0; /* Remover o espaçamento à esquerda */
+        margin-right: 0;
+    }
+
+    .button-box {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .button-box > a {
+        width: 100%; /* Botão ocupar toda a largura no mobile */
+    }
+
+    .video-box {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    video {
+        width: 100%; /* Vídeo ocupar toda a largura */
+    }
+
+}
+
+
+    </style>
+</head>
+<body></body>
+
+
+    <!-- Seção Hero -->
+    <header class="hero">
+        <section class="video-section">
+
+            <div class="container-fluid">
+                <div class="content">
+                    <div class="logo">
+                        <img src="logo.png" alt="Logo Primeira Venda 24h">
+                    </div>
+                    <div class="text-box">
+                        <h1 style="color:aliceblue !important;">Aprenda hoje mesmo a importar produtos originais e crie
+                            sua Independência financeira, <span style="color: purple !important;">chega de deixar seu
+                                chefe rico, chegou a sua vez !!!</span></h1>
+                    </div>
+                    <div class="video-box">
+                        <video controls poster="thumbnail.jpg" muted>
+                            <source src="video_exemplo.mp4" type="video/mp4">
+                            Seu navegador não suporta o vídeo.
+                        </video>
+
+                    </div>
+                    <div class="button-box">
+                        <a href="#" class="btn btn-primary">COMEÇE AGORA!</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </header>
+
+
+    <!-- Seção Sobre o Curso -->
+    <section id="sobre" class="sobre" style="background-color: #280035 !important; margin-top: 80px;">
+        <div class="container" style="margin-bottom: 80px;">
+            <p style="font-size: 17px; margin-bottom: 50px; margin-top: 50px;">Aqui está tudo o que você vai receber no MÉTODO PURPLE</p>
+            <div id="modulos" class="carousel slide" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner">
+                    <!-- Primeiro conjunto (2 módulos) -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="./modulo01.webp" class="d-block" alt="Módulo 1" style="width: 40% !important;">
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="modulo02.webp" class="d-block" alt="Módulo 2" style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Segundo conjunto (2 módulos) -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="modulo03.webp" class="d-block" alt="Módulo 3" style="width: 40% !important;">
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="modulo04.webp" class="d-block" alt="Módulo 4" style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Terceiro conjunto (1 módulo) -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="modulo05.webp" class="d-block" alt="Módulo 5" style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Controles do carrossel -->
+                <a class="carousel-control-prev" href="#modulos" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#modulos" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Seção Sobre Mim -->
+    <section id="sobre-mim" class="sobre-mim" style="margin-top: 80px;">
+        <div class="container" style="
+        margin-bottom: 80px;
+    ">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="foto_do_iphonte_2.webp" alt="Sobre Mim" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <h2>Prazer Jordan</h2>
+                    <p>Olá, sou [Seu Nome], um especialista em marketing digital com mais de 10 anos de experiência na
+                        indústria. Tenho ajudado empresas a crescer e alcançar seus objetivos de marketing por meio de
+                        estratégias inovadoras e eficazes.</p>
+                    <p>Minha paixão pelo marketing digital começou há muitos anos, e desde então, tenho me dedicado a
+                        estudar e implementar as melhores práticas para obter resultados excepcionais. Estou aqui para
+                        compartilhar meu conhecimento e ajudar você a alcançar o sucesso!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="sobre" class="sobre" style="background-color: #280035 !important;">
+        <div class="container" style="
+        margin-bottom: 80px; margin-top: 80px;
+    ">
+            <h2>FEEDBACK</h2>
+
+            <div id="depoimentos" class="carousel slide mt-5" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner">
+                    <!-- Primeiro conjunto (2 depoimentos) -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack01.jpeg" class="d-block" alt="Depoimento 1"
+                                    style="width: 40% !important;">
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack02.jpeg" class="d-block" alt="Depoimento 2"
+                                    style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Segundo conjunto (2 depoimentos) -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack03.jpeg" class="d-block" alt="Depoimento 3"
+                                    style="width: 40% !important;">
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack04.jpeg" class="d-block" alt="Depoimento 4"
+                                    style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terceiro conjunto (2 depoimentos) -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack05.jpeg" class="d-block" alt="Depoimento 5"
+                                    style="width: 40% !important;">
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack06.jpeg" class="d-block" alt="Depoimento 6"
+                                    style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quarto conjunto (2 depoimentos) -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack07.jpeg" class="d-block" alt="Depoimento 7"
+                                    style="width: 40% !important;">
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack08.jpeg" class="d-block" alt="Depoimento 8"
+                                    style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quinto conjunto (2 depoimentos) -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack09.jpeg" class="d-block" alt="Depoimento 9"
+                                    style="width: 40% !important;">
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack10.jpeg" class="d-block" alt="Depoimento 10"
+                                    style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sexto conjunto (2 depoimentos) -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack11.jpeg" class="d-block" alt="Depoimento 11"
+                                    style="width: 40% !important;">
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack12.jpeg" class="d-block" alt="Depoimento 12"
+                                    style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sétimo conjunto (2 depoimentos) -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack13.jpeg" class="d-block" alt="Depoimento 13"
+                                    style="width: 40% !important;">
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
+                                <img src="FeedBack14.jpeg" class="d-block" alt="Depoimento 14"
+                                    style="width: 40% !important;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles do carrossel -->
+                <a class="carousel-control-prev" href="#depoimentos" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#depoimentos" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </div>
+
+            <div class="button-box text-center" style="margin-top: 70px;">
+                <a href="#" class="btn btn-primary" style="width: 50%;">COMEÇE AGORA!</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Seção FAQ -->
+    <section id="faq" class="faq">
+        <div class="container"  style="
+        margin-bottom: 80px; margin-top: 80px;
+    ">
+            <h2 style="color: #fff;">Perguntas Frequentes</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                Qual é a duração do curso?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        data-parent="#faqAccordion">
+                        <div class="card-body">
+                            O curso tem uma duração total de 3 meses, com aulas semanais e materiais complementares.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                O curso oferece suporte após a conclusão?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Sim, oferecemos suporte contínuo e acesso a um grupo exclusivo de alunos para troca de
+                            experiências e dúvidas.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Como faço para me inscrever no curso?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Você pode se inscrever diretamente no nosso site clicando no botão "Inscreva-se Agora" na
+                            seção de preços.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inclua o Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
