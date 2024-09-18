@@ -23,6 +23,16 @@
             font-display: swap;
         }
 
+
+
+        @font-face {
+            font-family: 'MonumentExtended';
+            src: url('./fonts/MonumentExtended-Ultrabold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
         /* Paleta de Cores */
@@ -42,7 +52,7 @@
         }
 
         body {
-            font-family: 'Gliker SemiBold Expanded' !important;
+            font-family: 'MonumentExtended' !important;
             background-color: black !important;
         }
 
@@ -229,7 +239,6 @@
         }
 
         .text-box h1 {
-            font-family: 'Gliker SemiBold Expanded' !important;
             font-size: 19px;
             color: #800080;
             /* Cor roxa para o texto */
@@ -335,21 +344,29 @@
         .botao-rs span {
             display: inline-block;
             white-space: nowrap;
-            width: 0px;
             overflow: hidden;
             transition: 350ms ease;
-
-        }
-
-        .botao-rs:hover span {
             width: 150px;
             margin-left: 10px;
         }
 
+        .imgksl {
+            width: 60%;
+        }
 
-
+        .ingijidnfn {
+            width: 60% !important;
+        }
 
         @media (max-width: 768px) {
+
+            .ingijidnfn {
+                width: 100% !important;
+            }
+
+            .imgksl {
+                width: 100%;
+            }
 
             .text-cell {
                 margin-top: 10px;
@@ -483,6 +500,11 @@
     </div>
 
     <div class="container ">
+        <div class="justify-content-center text-center" style="margin-bottom: 60px;"><img class="imgksl"
+                src="Mas_o_que_eu_vou_aprender_com_esse_curso_.webp" alt=""></div>
+
+        <p class="text-center justify-content-center" style="font-size: 17px; margin-bottom: 10px; margin-top: 50px;">
+            SUPORTE AQUI</p>
         <div class="row ">
             <div class="col-12 d-flex justify-content-center">
                 <div class="botao-rs instagram">
@@ -507,8 +529,10 @@
 <!-- Seção Sobre Mim -->
 <section id="sobre-mim" class="sobre-mim" style="margin-top: 80px;">
     <div class="container" style="
-        margin-bottom: 80px;
+        margin-bottom: 50px;
     ">
+        <div class="justify-content-center text-center" style="margin-bottom: 60px;"><img src="alerta.png" alt=""
+                width="100%"></div>
 
         <div class="row">
             <div class="col-md-4">
@@ -525,6 +549,15 @@
                     para começar nesse mercado e criar também sua independência financeira na internet.</p>
             </div>
         </div>
+        <div class="text-center justify-content-center" style="display: flex; align-items: center; justify-content: center; margin-top: 50px; margin-bottom: 50px;">
+
+            <img style="width: 40%;" src="image.webp" />
+        </div>
+        
+
+        <div class="justify-content-center text-center" style="margin-bottom: 60px;">
+            <img class="ingijidnfn" src="Design_sem_nome_4.webp" alt="">
+        </div>
     </div>
 </section>
 
@@ -533,7 +566,8 @@
     <div class="container" style="
         margin-bottom: 80px; margin-top: 80px;
     ">
-        <h2 class="text-center" style="font-size: 27px; margin-bottom: 50px; margin-top: 50px;">RESULTADOS DOS NOSSOS ALUNOS</h2>
+        <h2 class="text-center" style="font-size: 27px; margin-bottom: 50px; margin-top: 50px;">RESULTADOS DOS NOSSOS
+            ALUNOS</h2>
 
         <div id="depoimentos" class="carousel slide mt-5" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
@@ -664,15 +698,16 @@
             <div class="card">
                 <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             Como terei acesso às aulas?
                         </button>
                     </h5>
                 </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
                     <div class="card-body">
-                        Após efetuado o pagamento, você receberá no e-mail cadastrado os dados de login para acessar a plataforma e começar a consumir o conteúdo.
+                        Após efetuado o pagamento, você receberá no e-mail cadastrado os dados de login para acessar a
+                        plataforma e começar a consumir o conteúdo.
                     </div>
                 </div>
             </div>
@@ -719,7 +754,8 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
                     <div class="card-body">
-                        O curso vai do seu tempo, todas as aulas são gravadas e você ve de acordo com sua disponibilidade.
+                        O curso vai do seu tempo, todas as aulas são gravadas e você ve de acordo com sua
+                        disponibilidade.
                     </div>
                 </div>
             </div>
