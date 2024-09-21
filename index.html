@@ -9,30 +9,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="fonts-icones.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Gliker SemiBold Expanded';
-            src: url('./fonts/Gliker-SemiBoldExpanded.eot');
-            src: local('./fonts/Gliker SemiBold Expanded'), local('Gliker-SemiBoldExpanded'),
-                url('./fonts/Gliker-SemiBoldExpanded.eot?#iefix') format('embedded-opentype'),
-                url('./fonts/Gliker-SemiBoldExpanded.woff2') format('woff2'),
-                url('./fonts/Gliker-SemiBoldExpanded.woff') format('woff'),
-                url('./fonts/Gliker-SemiBoldExpanded.ttf') format('truetype');
-            font-weight: 600;
-            font-style: normal;
-            font-display: swap;
-        }
-
-
-
-        @font-face {
-            font-family: 'MonumentExtended';
-            src: url('./fonts/MonumentExtended-Ultrabold.otf') format('opentype');
-            font-weight: bold;
-            font-style: normal;
-        }
-
-
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
         /* Paleta de Cores */
@@ -52,8 +32,10 @@
         }
 
         body {
-            font-family: 'MonumentExtended' !important;
-            background-color: black !important;
+            font-family: "Kanit", sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            background-color: #000 !important;
         }
 
         h1,
@@ -213,7 +195,7 @@
         }
 
         .logo {
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             margin-left: 38px;
             margin-right: 38px;
         }
@@ -239,14 +221,14 @@
         }
 
         .text-box h1 {
-            font-size: 19px;
+            font-size: 24px;
             color: #800080;
             /* Cor roxa para o texto */
             line-height: 1.5;
         }
 
         .video-box {
-            max-width: 440px;
+            width: 100%;
             margin-left: 50px;
             position: relative;
         }
@@ -372,6 +354,17 @@
 
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px); /* Move o elemento um pouco para baixo */
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+/* Estilos quando o elemento aparece na tela */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0); /* Retorna à posição original */
+}
 
 
 
@@ -461,8 +454,8 @@
                             chefe rico, chegou a sua vez !!!</span></h1>
                 </div>
                 <div class="video-box">
-                    <video controls poster="thumbnail.jpg" muted>
-                        <source src="video_exemplo.mp4" type="video/mp4">
+                    <video controls poster="thumbnail.jpg">
+                        <source src="purpleintro.mp4" type="video/mp4">
                         Seu navegador não suporta o vídeo.
                     </video>
 
@@ -482,7 +475,7 @@
     <div class="container" style="margin-bottom: 80px;">
         <p class="text-center" style="font-size: 17px; margin-bottom: 50px; margin-top: 50px;">Aqui está tudo o que você
             vai receber no MÉTODO PURPLE</p>
-        <div id="modulos" class="carousel slide" data-ride="carousel" data-interval="2500">
+        <div id="modulos" class="carousel slide fade-in" data-ride="carousel" data-interval="5000">
             <div class="carousel-inner">
                 <!-- Primeiro conjunto (2 módulos) -->
                 <div class="carousel-item active">
@@ -533,7 +526,7 @@
         </div>
     </div>
 
-    <div class="container ">
+    <div class="container fade-in">
         <div class="justify-content-center text-center" style="margin-bottom: 60px;"><img class="imgksl"
                 src="Mas_o_que_eu_vou_aprender_com_esse_curso_.webp" alt=""></div>
 
@@ -565,14 +558,14 @@
     <div class="container" style="
         margin-bottom: 50px;
     ">
-        <div class="justify-content-center text-center" style="margin-bottom: 60px;"><img src="alerta.png" alt=""
+        <div class="justify-content-center text-center fade-in" style="margin-bottom: 60px;"><img src="alerta.png" alt=""
                 width="100%"></div>
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 fade-in">
                 <img src="foto_do_iphonte_2.webp" alt="Sobre Mim" class="img-fluid">
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 fade-in">
                 <h2 class="text-cell" style="color: #ff00ff !important;">Prazer Jordan</h2>
                 <p class="text-cell">Especialista no mercado de e-commerce, iniciei nesse mercado em atravez do
                     instagram e do facebook. Atualmente ja trabalho com esse mercado a 5 anos e graças a ele, pude ter
@@ -602,7 +595,7 @@
         <h2 class="text-center" style="font-size: 27px; margin-bottom: 50px; margin-top: 50px;">RESULTADOS DOS NOSSOS
             ALUNOS</h2>
 
-        <div id="depoimentos" class="carousel slide mt-5" data-ride="carousel" data-interval="2500">
+        <div id="depoimentos" class="carousel slide fade-in mt-5" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
                 <!-- Primeiro conjunto (2 depoimentos) -->
                 <div class="carousel-item active">
@@ -724,9 +717,9 @@
         margin-bottom: 80px;
     ">
         <h2 class="text-center" style="font-size: 27px;">IMPORTAÇÕES</h2>
-        <h6 class="text-center" style="color: #fff !important; font-size: 15px; margin-bottom: 50px; margin-top: 10px;">Esses são alguns dos pares que eu ja comprei diretamente la na gringa e trouxe pro  brasil, o melhor de tudo é que voce pode comprar e receber no conforto da sua casa,<span style="color: #ff00ff !important;"> e o mais importante, não é apenas tênis que voce consegue trazer mas sim qualquer produto que existe, seja roupas, tênis ate eletrônicos.</span></h6>
+        <h6 class="text-center fade-in" style="color: #fff !important; font-size: 15px; margin-bottom: 50px; margin-top: 10px;">Esses são alguns dos pares que eu ja comprei diretamente la na gringa e trouxe pro  brasil, o melhor de tudo é que voce pode comprar e receber no conforto da sua casa,<span style="color: #ff00ff !important;"> e o mais importante, não é apenas tênis que voce consegue trazer mas sim qualquer produto que existe, seja roupas, tênis ate eletrônicos.</span></h6>
 
-        <div id="ok" class="carousel slide mt-5" data-ride="carousel" data-interval="2500">
+        <div id="ok" class="carousel slide fade-in mt-5" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
                 <!-- Primeiro conjunto (2 depoimentos) -->
                 <div class="carousel-item active">
@@ -946,6 +939,25 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    const fadeComponents = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+        threshold: 0.5,
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        });
+    }, appearOptions);
+
+    fadeComponents.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+</script>
 </body>
 
 </html>
