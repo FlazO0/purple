@@ -9,30 +9,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="fonts-icones.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <style>
-        @font-face {
-            font-family: 'Gliker SemiBold Expanded';
-            src: url('./fonts/Gliker-SemiBoldExpanded.eot');
-            src: local('./fonts/Gliker SemiBold Expanded'), local('Gliker-SemiBoldExpanded'),
-                url('./fonts/Gliker-SemiBoldExpanded.eot?#iefix') format('embedded-opentype'),
-                url('./fonts/Gliker-SemiBoldExpanded.woff2') format('woff2'),
-                url('./fonts/Gliker-SemiBoldExpanded.woff') format('woff'),
-                url('./fonts/Gliker-SemiBoldExpanded.ttf') format('truetype');
-            font-weight: 600;
-            font-style: normal;
-            font-display: swap;
-        }
-
-
-
-        @font-face {
-            font-family: 'MonumentExtended';
-            src: url('./fonts/MonumentExtended-Ultrabold.otf') format('opentype');
-            font-weight: bold;
-            font-style: normal;
-        }
-
-
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
         /* Paleta de Cores */
@@ -52,8 +38,10 @@
         }
 
         body {
-            font-family: 'MonumentExtended' !important;
-            background-color: black !important;
+            font-family: "Kanit", sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            background-color: #000 !important;
         }
 
         h1,
@@ -105,6 +93,12 @@
             transition: transform 0.3s ease;
         }
 
+        .button-intro-box .btn {
+            width: 100%;
+            background-color: #ff00ff !important;
+        }
+
+        
         .button-box .btn:hover {
             transform: translateY(-5px);
         }
@@ -142,6 +136,13 @@
         .faq .card-header {
             background-color: #ff00ff;
             color: #fff;
+            width: 100%;
+            padding: 0;
+        }
+
+        .card-button {
+            width: 100%;
+            padding: 20px 10px;
         }
 
         .faq .btn-link {
@@ -213,7 +214,7 @@
         }
 
         .logo {
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             margin-left: 38px;
             margin-right: 38px;
         }
@@ -239,14 +240,14 @@
         }
 
         .text-box h1 {
-            font-size: 19px;
+            font-size: 24px;
             color: #800080;
             /* Cor roxa para o texto */
             line-height: 1.5;
         }
 
         .video-box {
-            max-width: 440px;
+            width: 100%;
             margin-left: 50px;
             position: relative;
         }
@@ -324,21 +325,26 @@
  }
 
 .botao-rs{
-
-    padding:1em;
     border-radius:100vw;
     display:inline-flex;
     margin:0.5em;
     color:#ffffff;
-    width:auto;
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
 
 }
 
 .botao-rs a { 
-
     text-decoration:none; 
     color:#fff; 
-    display: inherit;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-end;
+
 }
 
         .botao-rs:hover{
@@ -346,12 +352,8 @@
 }
 
 .botao-rs i { 
-
-    width: 25px;
-    height: 25px;
-    line-height: 31px;
+    width: fit-content;
     font-size: 1.5em;
-
 }
 
 .botao-rs span{
@@ -372,6 +374,17 @@
 
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px); /* Move o elemento um pouco para baixo */
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+/* Estilos quando o elemento aparece na tela */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0); /* Retorna à posição original */
+}
 
 
 
@@ -438,7 +451,37 @@
                 width: 100%;
                 /* Vídeo ocupar toda a largura */
             }
+        }
 
+        .monument-text {
+            font-family: 'MonumentExtended', sans-serif;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-wrapper {
+            height: 100%;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 100%;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+        }
+
+        .modules-title-wrapper {
+            border-bottom: 2px solid var(--highlight-color);
         }
     </style>
 </head>
@@ -449,7 +492,6 @@
 <!-- Seção Hero -->
 <header class="hero">
     <section class="video-section">
-
         <div class="container-fluid">
             <div class="content">
                 <div class="logo">
@@ -458,82 +500,57 @@
                 <div class="text-box">
                     <h1 style="color:aliceblue !important;">Aprenda hoje mesmo a importar produtos originais e crie
                         sua Independência financeira, <span style="color: #ff00ff !important;">chega de deixar seu
-                            chefe rico, chegou a sua vez !!!</span></h1>
+                            chefe rico, chegou a sua vez!</span></h1>
                 </div>
                 <div class="video-box">
-                    <video controls poster="thumbnail.jpg" muted>
-                        <source src="video_exemplo.mp4" type="video/mp4">
+                    <video controls poster="thumbnail.jpg">
+                        <source src="purpleintro.mp4" type="video/mp4">
                         Seu navegador não suporta o vídeo.
                     </video>
-
-                </div>
-                <div class="button-box">
-                    <a href="https://pay.cakto.com.br/6NngHam" class="btn btn-primary">COMEÇE AGORA!</a>
+                    <div class="button-intro-box">
+                        <a href="https://pay.cakto.com.br/6NngHam" class="btn btn-primary button-intro">COMEÇE AGORA!</a>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 </header>
 
 
 <!-- Seção Sobre o Curso -->
+
 <section id="sobre" class="sobre" style="background-color: #280035 !important; margin-top: 80px;">
     <div class="container" style="margin-bottom: 80px;">
-        <p class="text-center" style="font-size: 17px; margin-bottom: 50px; margin-top: 50px;">Aqui está tudo o que você
-            vai receber no MÉTODO PURPLE</p>
-        <div id="modulos" class="carousel slide" data-ride="carousel" data-interval="2500">
-            <div class="carousel-inner">
-                <!-- Primeiro conjunto (2 módulos) -->
-                <div class="carousel-item active">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="./modulo01.webp" class="d-block" alt="Módulo 1" style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="modulo02.webp" class="d-block" alt="Módulo 2" style="width: 56% !important;">
-                        </div>
-                    </div>
+        <div class="modules-title-wrapper">
+            <h2 class="text-center monument-text" style="font-size: 26px; margin-bottom: 50px; margin-top: 50px;">
+                Aqui está tudo o que você vai receber no <span style="color: #ff00ff !important;">MÉTODO PURPLE</span>
+            </h2>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./modulo01.webp" class="d-block" alt="Módulo 1">
                 </div>
-
-                <!-- Segundo conjunto (2 módulos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="modulo03.webp" class="d-block" alt="Módulo 3" style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="modulo04.webp" class="d-block" alt="Módulo 4" style="width: 56% !important;">
-                        </div>
-                    </div>
+                <div class="swiper-slide">
+                    <img src="modulo02.webp" class="d-block" alt="Módulo 2">
                 </div>
-
-                <!-- Terceiro conjunto (1 módulo) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="modulo05.webp" class="d-block" alt="Módulo 5" style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="modulo06.webp" class="d-block" alt="Módulo 6" style="width: 56% !important;">
-                        </div>
-                    </div>
+                <div class="swiper-slide">
+                    <img src="modulo03.webp" class="d-block" alt="Módulo 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="modulo04.webp" class="d-block" alt="Módulo 4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="modulo05.webp" class="d-block" alt="Módulo 5">
+                </div>
+                <div class="swiper-slide">
+                    <img src="modulo06.webp" class="d-block" alt="Módulo 6">
                 </div>
             </div>
-
-            <!-- Controles do carrossel -->
-            <a class="carousel-control-prev" href="#modulos" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#modulos" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Próximo</span>
-            </a>
         </div>
     </div>
 
-    <div class="container ">
+    <div class="container fade-in">
         <div class="justify-content-center text-center" style="margin-bottom: 60px;"><img class="imgksl"
                 src="Mas_o_que_eu_vou_aprender_com_esse_curso_.webp" alt=""></div>
 
@@ -542,16 +559,14 @@
         <div class="row ">
             <div class="col-12 d-flex justify-content-center">
                 <div class="botao-rs instagram">
-                    <a href="https://www.instagram.com/purple_stor?igsh=MTJiNnVqYnVxY3Q3Yw==" title="Instagram">
+                    <a href="https://www.instagram.com/purple_stor?igsh=MTJiNnVqYnVxY3Q3Yw==" title="Instagram" target="_blank">
                         <i class="icon icon-instagram"></i>
-                        <span>Instagram</span>
                     </a>
                 </div>
 
                 <div class="botao-rs whatsapp">
-                    <a href="https://wa.me/message/OUH2AJHDL5ULM1" title="whatsApp">
+                    <a href="https://wa.me/message/OUH2AJHDL5ULM1" title="WhatsApp" target="_blank">
                         <i class="icon icon-whatsapp"></i>
-                        <span>whatsApp</span>
                     </a>
                 </div>
             </div>
@@ -565,14 +580,14 @@
     <div class="container" style="
         margin-bottom: 50px;
     ">
-        <div class="justify-content-center text-center" style="margin-bottom: 60px;"><img src="alerta.png" alt=""
+        <div class="justify-content-center text-center fade-in" style="margin-bottom: 60px;"><img src="alerta.png" alt=""
                 width="100%"></div>
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 fade-in">
                 <img src="foto_do_iphonte_2.webp" alt="Sobre Mim" class="img-fluid">
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 fade-in">
                 <h2 class="text-cell" style="color: #ff00ff !important;">Prazer Jordan</h2>
                 <p class="text-cell">Especialista no mercado de e-commerce, iniciei nesse mercado em atravez do
                     instagram e do facebook. Atualmente ja trabalho com esse mercado a 5 anos e graças a ele, pude ter
@@ -584,11 +599,9 @@
             </div>
         </div>
         <div class="text-center justify-content-center" style="display: flex; align-items: center; justify-content: center; margin-top: 50px; margin-bottom: 50px;">
-
             <img style="width: 40%;" src="image.webp" />
         </div>
         
-
         <div class="justify-content-center text-center" style="margin-bottom: 60px;">
             <img class="ingijidnfn" src="Design_sem_nome_4.webp" alt="">
         </div>
@@ -599,119 +612,59 @@
 <section id="sobre" class="sobre" style="background-color: #280035 !important;">
     <div class="container" style=" margin-top: 80px;
     ">
-        <h2 class="text-center" style="font-size: 27px; margin-bottom: 50px; margin-top: 50px;">RESULTADOS DOS NOSSOS
-            ALUNOS</h2>
+        <div class="modules-title-wrapper">
+            <h2 class="text-center" style="font-size: 27px; margin-bottom: 50px; margin-top: 50px;">
+                RESULTADOS DOS NOSSOS ALUNOS
+            </h2>
+        </div>
 
-        <div id="depoimentos" class="carousel slide mt-5" data-ride="carousel" data-interval="2500">
-            <div class="carousel-inner">
-                <!-- Primeiro conjunto (2 depoimentos) -->
-                <div class="carousel-item active">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack01.jpeg" class="d-block" alt="Depoimento 1"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack02.jpeg" class="d-block" alt="Depoimento 2"
-                                style="width: 56% !important;">
-                        </div>
+        <div id="depoimentos" class="carousel slide fade-in mt-5" data-ride="carousel" data-interval="2500">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="FeedBack01.jpeg" class="d-block" alt="Depoimento 1">
                     </div>
-                </div>
-
-                <!-- Segundo conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack03.jpeg" class="d-block" alt="Depoimento 3"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack04.jpeg" class="d-block" alt="Depoimento 4"
-                                style="width: 56% !important;">
-                        </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack13.jpeg" class="d-block" alt="Depoimento 13">
                     </div>
-                </div>
-
-                <!-- Terceiro conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack05.jpeg" class="d-block" alt="Depoimento 5"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack06.jpeg" class="d-block" alt="Depoimento 6"
-                                style="width: 56% !important;">
-                        </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack14.jpeg" class="d-block" alt="Depoimento 14">
                     </div>
-                </div>
-
-                <!-- Quarto conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack07.jpeg" class="d-block" alt="Depoimento 7"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack08.jpeg" class="d-block" alt="Depoimento 8"
-                                style="width: 56% !important;">
-                        </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack02.jpeg" class="d-block" alt="Depoimento 2">
                     </div>
-                </div>
-
-                <!-- Quinto conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack09.jpeg" class="d-block" alt="Depoimento 9"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack10.jpeg" class="d-block" alt="Depoimento 10"
-                                style="width: 56% !important;">
-                        </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack07.jpeg" class="d-block" alt="Depoimento 7">
                     </div>
-                </div>
-
-                <!-- Sexto conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack11.jpeg" class="d-block" alt="Depoimento 11"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack12.jpeg" class="d-block" alt="Depoimento 12"
-                                style="width: 56% !important;">
-                        </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack04.jpeg" class="d-block" alt="Depoimento 4">
                     </div>
-                </div>
-
-                <!-- Sétimo conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack13.jpeg" class="d-block" alt="Depoimento 13"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="FeedBack14.jpeg" class="d-block" alt="Depoimento 14"
-                                style="width: 56% !important;">
-                        </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack09.jpeg" class="d-block" alt="Depoimento 9">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack05.jpeg" class="d-block" alt="Depoimento 5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack06.jpeg" class="d-block" alt="Depoimento 6">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack03.jpeg" class="d-block" alt="Depoimento 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack08.jpeg" class="d-block" alt="Depoimento 8">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack10.jpeg" class="d-block" alt="Depoimento 10">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack11.jpeg" class="d-block" alt="Depoimento 11">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="FeedBack12.jpeg" class="d-block" alt="Depoimento 12">
                     </div>
                 </div>
             </div>
-
-            <!-- Controles do carrossel -->
-            <a class="carousel-control-prev" href="#depoimentos" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#depoimentos" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Próximo</span>
-            </a>
         </div>
     </div>
 </section>
@@ -723,97 +676,45 @@
     <div class="container" style="
         margin-bottom: 80px;
     ">
-        <h2 class="text-center" style="font-size: 27px;">IMPORTAÇÕES</h2>
-        <h6 class="text-center" style="color: #fff !important; font-size: 15px; margin-bottom: 50px; margin-top: 10px;">Esses são alguns dos pares que eu ja comprei diretamente la na gringa e trouxe pro  brasil, o melhor de tudo é que voce pode comprar e receber no conforto da sua casa,<span style="color: #ff00ff !important;"> e o mais importante, não é apenas tênis que voce consegue trazer mas sim qualquer produto que existe, seja roupas, tênis ate eletrônicos.</span></h6>
-
-        <div id="ok" class="carousel slide mt-5" data-ride="carousel" data-interval="2500">
-            <div class="carousel-inner">
-                <!-- Primeiro conjunto (2 depoimentos) -->
-                <div class="carousel-item active">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok01.jpeg" class="d-block" alt="Depoimento 1"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok02.jpeg" class="d-block" alt="Depoimento 2"
-                                style="width: 56% !important;">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Segundo conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok03.jpeg" class="d-block" alt="Depoimento 3"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok04.jpeg" class="d-block" alt="Depoimento 4"
-                                style="width: 56% !important;">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Terceiro conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok05.jpeg" class="d-block" alt="Depoimento 5"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok06.jpeg" class="d-block" alt="Depoimento 6"
-                                style="width: 56% !important;">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quarto conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok07.jpeg" class="d-block" alt="Depoimento 7"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok08.jpeg" class="d-block" alt="Depoimento 8"
-                                style="width: 56% !important;">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quinto conjunto (2 depoimentos) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok09.jpeg" class="d-block" alt="Depoimento 9"
-                                style="width: 56% !important;">
-                        </div>
-                        <div class="col-md-6 col-12 d-flex justify-content-center" style="margin-top: 10px;">
-                            <img src="ok010.jpeg" class="d-block" alt="Depoimento 10"
-                                style="width: 56% !important;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Controles do carrossel -->
-            <a class="carousel-control-prev" href="#ok" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#ok" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Próximo</span>
-            </a>
+        <div class="modules-title-wrapper">
+            <h2 class="text-center" style="font-size: 27px;">IMPORTAÇÕES</h2>
+            <h6 class="text-center fade-in" style="color: #fff !important; font-size: 15px; margin-bottom: 50px; margin-top: 10px;">Esses são alguns dos pares que eu ja comprei diretamente la na gringa e trouxe pro  brasil, o melhor de tudo é que voce pode comprar e receber no conforto da sua casa,<span style="color: #ff00ff !important;"> e o mais importante, não é apenas tênis que voce consegue trazer mas sim qualquer produto que existe, seja roupas, tênis ate eletrônicos.</span></h6>
         </div>
 
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="ok01.jpeg" class="d-block" alt="Ok 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="ok02.jpeg" class="d-block" alt="Ok 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="ok03.jpeg" class="d-block" alt="Ok 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="ok04.jpeg" class="d-block" alt="Ok 4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="ok05.jpeg" class="d-block" alt="Ok 5">
+                </div>
+                <div class="swiper-slide">
+                    <img src="ok06.jpeg" class="d-block" alt="Ok 6">
+                </div>
+                <div class="swiper-slide">
+                    <img src="ok07.jpeg" class="d-block" alt="Ok 7">
+                </div>
+                <div class="swiper-slide">
+                    <img src="ok08.jpeg" class="d-block" alt="Ok 8">
+                </div>
+                <div class="swiper-slide">
+                    <img src="ok09.jpeg" class="d-block" alt="Ok 9">
+                </div>
+            </div>
+        </div>
         <div class="button-box text-center" style="margin-top: 70px;">
             <a href="https://pay.cakto.com.br/6NngHam" class="btn btn-primary" style="width: 50%;">COMEÇE AGORA!</a>
         </div>
-    </div>
 </section>
 
 
@@ -872,12 +773,12 @@
         <div class="accordion" id="faqAccordion">
             <div class="card">
                 <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <button class="btn btn-link collapsed card-button" type="button" data-toggle="collapse"
+                    data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <h5 class="mb-0">
                             Como terei acesso às aulas?
-                        </button>
-                    </h5>
+                        </h5>
+                    </button>
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
                     <div class="card-body">
@@ -888,12 +789,12 @@
             </div>
             <div class="card">
                 <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button class="btn btn-link collapsed card-button" type="button" data-toggle="collapse"
+                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <h5 class="mb-0">
                             O curso oferece suporte após a conclusão?
-                        </button>
-                    </h5>
+                        </h5>
+                    </button>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
                     <div class="card-body">
@@ -904,12 +805,12 @@
             </div>
             <div class="card">
                 <div class="card-header" id="headingThree">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button class="btn btn-link collapsed card-button" type="button" data-toggle="collapse"
+                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <h5 class="mb-0">
                             Como faço para me inscrever no curso?
-                        </button>
-                    </h5>
+                        </h5>
+                    </button>
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
                     <div class="card-body">
@@ -919,15 +820,15 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <div class="card-header" id="headingFour">
+                    <button class="btn btn-link collapsed card-button" type="button" data-toggle="collapse"
+                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <h5 class="mb-0">
                             Qual é a duração do curso?
-                        </button>
-                    </h5>
+                        </h5>
+                    </button>
                 </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
                     <div class="card-body">
                         O curso vai do seu tempo, todas as aulas são gravadas e você ve de acordo com sua
                         disponibilidade.
@@ -946,6 +847,48 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    const fadeComponents = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+        threshold: 0.5,
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        });
+    }, appearOptions);
+
+    fadeComponents.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+</script>
+<script>
+    var swiper = new Swiper(".swiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
+      coverflowEffect: {
+        rotate: 30,
+        stretch: 0,
+        depth: 50,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+</script>
 </body>
 
 </html>
